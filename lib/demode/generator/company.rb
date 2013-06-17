@@ -3,13 +3,14 @@ module Demode
     class << self
 
       def company_name(id)
-        "Gooley LLC"
+        Fields.get(id,:company_names)
       end
 
       def company_domain(id)
-        "gooley-llc.com"
+        domain_suffix = Fields.get(id,:domain_suffixes)
+        [company_name(id).downcase, domain_suffix].join('.')
       end
-
+      
     end
   end
 end
