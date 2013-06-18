@@ -23,7 +23,7 @@ module Demode
           raise "Replacement second param must be a symbol: #{r[1]}" if !r[1].is_a?(Symbol)
           raise "Replacement third param must be a symbol or proc: #{r[2]}" if !r[2].is_a?(Symbol) && !r[2].respond_to?(:call)
 
-          raise "Unknown replacement field: #{r[2]}" if !Generator.respond_to?(r[2])
+          raise "Unknown replacement field: #{r[2]}" if r[2].is_a?(Symbol) && !Generator.respond_to?(r[2])
         end
       end
 

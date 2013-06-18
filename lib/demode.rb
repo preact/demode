@@ -31,7 +31,11 @@ module Demode
         # replace the method with a call to our generator
         klass.send(:define_method, method) do
           id = self.send(id_field)
-          Demode::Generate.get(id, replacement)
+          if replacement.is_a?(Symbol)
+            Demode::Generate.get(id, replacement)
+          elsif replacement.is_a?(Proc)
+            replacement.call(self)
+          end
         end
 
       end
