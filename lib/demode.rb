@@ -21,6 +21,7 @@ module Demode
     end
 
     def setup
+      id_field = self.configuration.id_field
       self.configuration.replacements.each do |klass, method, replacement|
 
         # alias the method we're about to replace
@@ -29,7 +30,8 @@ module Demode
 
         # replace the method with a call to our generator
         klass.send(:define_method, method) do
-          Demode::Generate.get(self.id, replacement)
+          id = self.send(id_field)
+          Demode::Generate.get(id, replacement)
         end
 
       end
