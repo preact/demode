@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require File.expand_path("../lib/demode/version", __FILE__)
+
 require 'rubygems'
 require 'bundler'
 begin
@@ -21,6 +23,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = "Library to allow you to easily fake data during demos"
   gem.email = "gooley@preact.io"
   gem.authors = ["Christopher Gooley", "Eric Garcia"]
+  gem.version = Demode::VERSION
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -39,7 +42,6 @@ end
 task :default => :spec
 
 require 'rdoc/task'
-require File.expand_path("../lib/demode/version", __FILE__)
 Rake::RDocTask.new do |rdoc|
   version = Demode::VERSION
 
