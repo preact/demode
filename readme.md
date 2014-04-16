@@ -2,7 +2,11 @@ Demode Gem
 ===
 Allow your app to easily display fake, consistant data from your models when in demo mode.
 
-Randomness inspired by the faker gem (https://github.com/btelles/faker). 
+Randomness idea and person names inspired by the [faker gem](https://github.com/btelles/faker). Random company names from [online-generator.com](http://online-generator.com/name-generator/company-name-generator.php).
+
+The whole point of this gem is to be able to generate valid-looking demoable data from your dev or prod database. It uses the Id of the model to ensure that every time you generate a fake name, it's the same fake name for the same model. This ensures that things are consistant across page loads and deploys, it also improves the face-validity of the data by making sure that the name matches the email, for instance.
+
+The class on which you're faking fields should respond to an :id call, so it should work seamlessly with ActiveModel, Mongoid, or other ORMs. You can also optionally specify the id field to use, if :id isn't appropriate for your use case.
 
 Installation
 ---
@@ -32,7 +36,7 @@ Demode.configure do |config|
 end
 ```
 
-You should provide an array of Class, method to replace, random generation method for each method on each class that you'd like to mask.
+You should provide an array of Model/Class, method to replace, random generation method for each method on each class that you'd like to mask.
 
 License
 ---

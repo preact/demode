@@ -3,7 +3,9 @@ module Demode
     class << self
 
       def company_name(id)
-        Fields.get(id,:company_names)
+        first_name = Fields.get(id,:company_names)
+        last_name = Fields.get(id,:company_suffixes)
+        [first_name, last_name].join(' ')
       end
 
       def company_domain(id)
