@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "demode"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christopher Gooley", "Eric Garcia"]
-  s.date = "2013-06-18"
+  s.date = "2014-04-16"
   s.description = "Library to allow you to easily fake data during demos"
-  s.email = "gooley@preact.io"
+  s.email = "gooley@preact.com"
   s.extra_rdoc_files = [
     "LICENSE.txt"
   ]
